@@ -30,17 +30,13 @@ All real-time logic is implemented using **Pathway**, and visualized using **Bok
 ## Architecture Flow
 
 ```mermaid
-graph TD
-    A[Raw Parking CSV] --> B[Create Timestamp Column]
-    B --> C[Feature Engineering]
-    C --> D[Export Subset as demand_data.csv]
-    D --> E[Pathway Stream: replay_csv()]
-    E --> F[Demand Score Function]
-    F --> G[Clamp Demand Score to 0-1]
-    G --> H[Price = 10 * (1 + score)]
-    H --> I[Pathway Output Table]
-    I --> J[Pandas Conversion for Viz]
-    J --> K[Bokeh Visualizations]
+flowchart TD
+    A[Stream CSV Input via Pathway] --> B[Feature Parsing & Encoding]
+    B --> C[Calculate Demand Score]
+    C --> D[Clamp Demand Score (0 to 1)]
+    D --> E[Price = Base * (1 + Clamped Demand)]
+    E --> F[Stream Output Table]
+    F --> G[Bokeh Visualization]
 ```
 
 ---
