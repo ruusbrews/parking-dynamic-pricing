@@ -11,7 +11,7 @@ The pricing is calculated per parking lot based on occupancy and capacity, start
 
 ---
 
-## 🔧 Tech Stack
+## Tech Stack
 
 * **Python** (Google Colab environment)
 * **Pathway** for real-time stream simulation and transformation
@@ -23,7 +23,7 @@ The pricing is calculated per parking lot based on occupancy and capacity, start
 
 ---
 
-## 🛠️ Architecture Flow
+## Architecture Flow
 
 ```mermaid
 graph TD
@@ -41,7 +41,7 @@ graph TD
 
 ---
 
-## 💡 Pricing Logic
+## Pricing Logic
 
 * Base price: \$10
 
