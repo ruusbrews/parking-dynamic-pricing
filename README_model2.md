@@ -31,12 +31,12 @@ All real-time logic is implemented using **Pathway**, and visualized using **Bok
 
 ```mermaid
 flowchart TD
-    A[Stream CSV Input via Pathway] --> B[Feature Parsing & Encoding]
+    A[Stream CSV Input via Pathway] --> B[Parse Features and Encode]
     B --> C[Calculate Demand Score]
-    C --> D[Clamp Demand Score (0 to 1)]
-    D --> E[Price = Base * (1 + Clamped Demand)]
-    E --> F[Stream Output Table]
-    F --> G[Bokeh Visualization]
+    C --> D[Clamp Demand Score from 0 to 1]
+    D --> E[Multiply Base Price with Demand Factor]
+    E --> F[Output as Stream Table]
+    F --> G[Visualize Prices using Bokeh]
 ```
 
 ---
