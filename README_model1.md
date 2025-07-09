@@ -26,17 +26,13 @@ The pricing is calculated per parking lot based on occupancy and capacity, start
 ## Architecture Flow
 
 ```mermaid
-graph TD
-    A[Raw CSV Dataset] --> B[Preprocessing in Pandas]
-    B --> C[Create Timestamp]
-    C --> D[Sort Chronologically]
-    D --> E[Save Stream Subset to parking_stream.csv]
-    E --> F[Pathway - Schema + Data Streaming]
-    F --> G[Pathway Logic: Parse Timestamp]
-    G --> H[Calculate Price: 10 + alpha * (Occupancy / Capacity)]
-    H --> I[Pathway Output Table]
-    I --> J[Pandas Conversion for Visualization]
-    J --> K[Bokeh Graphs]
+flowchart TD
+    A[Stream CSV Input via Pathway] --> B[Parse Timestamp]
+    B --> C[Sort by Time]
+    C --> D[Select Features: Occupancy & Capacity]
+    D --> E[Calculate Price: Linear Function]
+    E --> F[Stream Output Table]
+    F --> G[Bokeh Visualization]
 ```
 
 ---
